@@ -2,7 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 
-const authRoutes = require('./routes/authRouter')
+const authRoute = require('./routes/authRoute')
+const companiesRoute = require('./routes/companiesRoute')
+
 
 dotenv.config()
 
@@ -17,8 +19,8 @@ mongoose.connect(MONGO_URI)
     .catch(err => console.log(err))
 
 
-app.use('/auth',authRoutes)
-
+app.use('/auth',authRoute)
+app.use('/companies',companiesRoute)
   
 app.listen(PORT, (error) =>{
     if(!error)

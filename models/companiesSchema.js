@@ -6,21 +6,17 @@ const companiesSchema = new Schema(
     name: {
       type: String,
       required: true,
-      unique,
+      unique:true,
     },
     category: {
       type: String,
       enum: ["restaurant", "hotel", "cafe", "shop", "service"],
       required: true,
       },
-    email: {
-      type: String,
-      required: true,
-      unique,
-    },
     owner: {
         type: Schema.Types.ObjectId,
         ref: "users",
+        required: true,
     },
     workers: [
       {
